@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#176b55">
+<meta name="description" content="ต้นแบบแอปธุรการชั้นเรียน โรงเรียนบ้านโป่งเกลือ">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<title>ธุรการชั้นเรียน | บ้านโป่งเกลือ</title>
+</head>
+<body>
+<section id="loginScreen" class="login-wrap">
+  <div class="login-card">
+    <div class="brand-mark">🏫</div>
+    <p class="eyebrow">BAN PONG KLUE SCHOOL</p>
+    <h1>ธุรการชั้นเรียน</h1>
+    <p class="muted">โรงเรียนบ้านโป่งเกลือ</p>
+    <div class="demo-note"><strong>รุ่นทดลอง</strong><br>ข้อมูลจะบันทึกไว้ในอุปกรณ์นี้เท่านั้น ยังไม่ใช่ระบบออนไลน์</div>
+    <label for="username">ชื่อผู้ใช้</label><input id="username" autocomplete="username" value="ครูทดลอง">
+    <label for="password">รหัสทดลอง</label><input id="password" type="password" autocomplete="current-password" value="1234">
+    <button id="loginBtn" class="primary full">เข้าสู่ระบบทดลอง</button>
+    <p class="hint">บัญชีทดลอง: ครูทดลอง / รหัส 1234</p>
+  </div>
+</section>
+<div id="appScreen" class="hidden">
+<header class="topbar">
+  <div class="brand-small"><span class="brand-icon">🏫</span><div><strong>ธุรการชั้นเรียน</strong><small>โรงเรียนบ้านโป่งเกลือ</small></div></div>
+  <button id="logoutBtn" class="logout">ออกจากระบบ</button>
+</header>
+<main class="container">
+  <div class="welcome"><div><p class="eyebrow">ระบบจัดการชั้นเรียน</p><h2>สวัสดี, ครูทดลอง 👋</h2><p class="muted">เลือกเมนูเพื่อทดลองใช้งาน</p></div><div class="date-chip" id="today"></div></div>
+  <div class="notice"><span>ℹ️</span><div><strong>ข้อมูลทดลองเท่านั้น</strong><p>อย่าใส่ข้อมูลส่วนบุคคลของนักเรียนจริง รุ่นนี้ยังไม่เชื่อมฐานข้อมูลออนไลน์</p></div></div>
+  <section class="stats">
+    <div class="stat-card"><span>นักเรียนทดลอง</span><strong id="studentCount">0</strong><small>รายชื่อในเครื่องนี้</small></div>
+    <div class="stat-card"><span>ระดับชั้น</span><strong>8</strong><small>อ.2 ถึง ป.6</small></div>
+    <div class="stat-card"><span>บันทึกวันนี้</span><strong id="attendanceCount">0</strong><small>รายการเช็กชื่อ</small></div>
+  </section>
+  <h3 class="section-title">เมนูหลัก</h3>
+  <div class="menu-grid">
+    <button class="menu-card active" data-page="students"><span class="menu-icon mint">👧</span><strong>ข้อมูลนักเรียน</strong><small>เพิ่มและค้นหารายชื่อ</small></button>
+    <button class="menu-card" data-page="attendance"><span class="menu-icon blue">🗓️</span><strong>เช็กชื่อมาเรียน</strong><small>มา / ขาด / ลา / ป่วย</small></button>
+    <button class="menu-card" data-page="scores"><span class="menu-icon gold">📊</span><strong>คะแนนและผลเรียน</strong><small>บันทึกคะแนนทดลอง</small></button>
+    <button class="menu-card" data-page="reports"><span class="menu-icon purple">📄</span><strong>เอกสารและรายงาน</strong><small>สรุปข้อมูลในเครื่อง</small></button>
+    <button class="menu-card" data-page="homevisit"><span class="menu-icon coral">🏡</span><strong>เยี่ยมบ้าน</strong><small>บันทึกการเยี่ยมบ้าน</small></button>
+    <button class="menu-card" data-page="contacts"><span class="menu-icon sky">💬</span><strong>ติดต่อผู้ปกครอง</strong><small>บันทึกการติดต่อ</small></button>
+  </div>
+  <section id="contentPanel" class="panel"></section>
+  <footer>รุ่นทดลองสำหรับทดสอบหน้าจอ • ยังไม่ใช้แทนระบบโรงเรียนจริง</footer>
+</main>
+<nav class="bottom-nav">
+  <button data-page="students" class="active"><span>👧</span>นักเรียน</button>
+  <button data-page="attendance"><span>🗓️</span>เช็กชื่อ</button>
+  <button data-page="scores"><span>📊</span>คะแนน</button>
+  <button data-page="reports"><span>📄</span>รายงาน</button>
+</nav>
+</div>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body></html>
